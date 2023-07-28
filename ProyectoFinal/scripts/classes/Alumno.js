@@ -1,8 +1,20 @@
 import Usuario from "./Usuario.js"
 
 export default class Alumno extends Usuario {
-    constructor (n, a, c, ac, cursosTomados){
-        super(n, a, c, ac)
+    constructor (nombres, apellidos, correo, activo, cursosTomados){
+        super(nombres, apellidos, correo, activo)
         this.cursosTomados = cursosTomados
 }
+    getNombre(){
+        return this.nombres
+    }
+    getApellidos(){
+        return this.apellidos
+    }
+    getCorreo(){
+        return this.correo
+    }
+    getActivo(){
+        return this.activo
+    }
 }
