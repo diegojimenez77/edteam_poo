@@ -27,17 +27,36 @@ function mostrarCurso(curso) {
     elem.appendChild(hijo)
 }
 
-const formulario = document.getElementById("formCursos")
-formulario.addEventListener("submit", e => {
+const elem2 = document.getElementById("alumnos")
+function mostrarAlumno(alumno) {
+    const hijo = document.createElement("div")
+        hijo.innerHTML = `
+        <div>
+            <h2>${alumno.getNombre()}</h2>
+            <h2>${alumno.getApellidos()}</h2>
+            <h2>${alumno.getCorreo()}</h2>
+            <h2>${alumno.getActivo()}</h2>
+        </div>
+        `
+    elem2.appendChild(hijo)
+}
+
+const formularioC = document.getElementById("formCursos")
+formularioC.addEventListener("submit", e => {
     e.preventDefault()
     const target = e.target
     const curso = new Curso(target.nombreCurso.value, target.posterCurso.value, target.clasesCurso.value)
     mostrarCurso(curso)
 })
-//Llamadas a la funcion mostrar curso
-// mostrarCurso(html)
-// mostrarCurso(css)
-// mostrarCurso(javascript)
+
+const formularioA = document.getElementById("formAlumnos")
+formularioA.addEventListener("submit", e => {
+    e.preventDefault()
+    const target = e.target
+    const alumno = new Alumno(target.nombresAlumno.value, target.apellidosAlumno.value, target.correoAlumno.value, target.activoAlumno.value)
+    console.log(alumno)
+    mostrarAlumno(alumno)
+})
 
 const profe = new Profesor("Beto", "Quiroga", "beto@ed.team", true, ["React", "Drupal"])
 console.log(profe);
